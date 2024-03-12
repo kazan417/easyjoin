@@ -4,7 +4,7 @@ echo "скрипт ввода компьютера в домен"
 if [ -n "$(command -v yum)" ]; then
   if [[ $EUID -ne 0 ]]; then
      echo "введите пароль суперпользователя"
-     su -c 	"/bin/bash ./join-mgkb.sh"
+     su -c 	"/bin/bash ./easyjoin.sh"
      exit 0
   fi
   if [[ $EUID -ne 0 ]]; then
@@ -52,7 +52,7 @@ if [ -n "$(command -v apt-get)" ]; then
 	echo "найден apt-get устанавливаем требуемые программы с помощью apt-get"
   if [[ $EUID -ne 0 ]]; then
      echo "введите пароль суперпользователя"
-     su -c 	"/bin/bash ./join-mgkb.sh"
+     su -c 	"/bin/bash ./easyjoin.sh"
      exit 0
   fi
   if [[ $EUID -ne 0 ]]; then
