@@ -11,6 +11,7 @@ if [ -n "$(command -v yum)" ]; then
   echo "ошибка получения прав суперпользователя"
   exit 1
   fi
+export PATH=$PATH:/usr/sbin
 echo "введите новое имя компьютера например: adm-k12-1-redos"
 read pcname
 echo "введите имя пользователя домена"
