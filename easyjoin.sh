@@ -66,6 +66,8 @@ echo "введите имя пользователя домена"
 read domainuser
 echo "введите домен вида DOMAIN.LOCAL"
 read domain
+echo "введите имя контроллера домена вида dc.domain.loal"
+read domaincontroller
 apt-get -y install chrony astra-ad-sssd-client
 echo "настройка синхронизации времени с сервером времени"
 echo 'server $domain iburst' >> /etc/chrony/chrony.conf
@@ -83,7 +85,7 @@ echo '*               -       nofile          16384' >> /etc/security/limits.con
 echo 'root            -       nofile          16384' >> /etc/security/limits.conf
 echo '%администраторы\ домена ALL=(ALL) ALL' >> /etc/sudoers
 echo '%domain\ admins ALL=(ALL) ALL' >> /etc/sudoers
-astra-ad-sssd-client -d $domain -u $domainuser
+astra-ad-sssd-client -d $domain -u $domainuser -dc $domaincontroller
 fi
 echo "компьютер успешно введен в домен. Нажмите любую клавишу..."
 read
